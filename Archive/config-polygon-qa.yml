@@ -1,0 +1,96 @@
+IsStandalone: true
+#
+AWSLambdaNums: 3
+#
+ScenariosPerSec: 3
+DurationSec: 180
+# 0 = unlimited
+GoroutineLimit: 0
+#
+TestNode: http://polygon-mainnet.bk.nodereal.cc/v1/60bb5a37028747c498719477a555c6de
+FullNode: http://polygon-mainnet.bk.nodereal.cc/v1/60bb5a37028747c498719477a555c6de
+# websocket test url
+WsUrl: ws://polygon-mainnet.bk.nodereal.cc/ws/v1/60bb5a37028747c498719477a555c6de
+# api key
+ApiKey:
+#  - 2d69bdf700454b2cb47a9d72e5d68784
+#  - 2d69bdf700454b2cb47a9d72e5d68784
+#
+Scenarios:
+  # archive
+  debug_traceBlockByNumber: 0
+  debug_traceTransaction: 0
+  debug_traceCall: 0
+  # archive + normal rpc
+  eth_call_getAmountsOut: 0
+  eth_call_balanceOf: 0
+  eth_getStorageAt: 0
+  eth_getBalance: 0
+  eth_estimateGas: 0
+  eth_getTransactionCount: 0
+  eth_getCode: 0
+  eth_getProof: 0
+  # normal rpc
+  eth_getLogs: 0
+  net_version: 0
+  eth_blockNumber: 0
+  eth_getTransactionReceipt: 0
+  eth_getBlockByNumber: 0
+  eth_chainId: 0
+  eth_getTransactionByHash: 0
+  # websocket
+  eth_subscribe_newHeads: 0
+  eth_subscribe_logs: 0
+  eth_subscribe_newPendingTransactions: 0
+  #batch
+  #filter
+  eth_newFilter: 0
+  eth_newBlockFilter: 0
+  eth_newPendingTransactionFilter: 0
+  eth_getFilterLogs: 0
+  eth_getFilterChanges: 0
+  eth_uninstallFilter: 0
+  eth_getFilterLogsOnupdate: 0
+  eth_getFilterChangesOnupdate: 0
+  eth_uninstallFilterOnupdate: 0
+  bor_getSignersAtHash: 0
+  bor_getAuthor: 0
+  bor_getCurrentValidators: 0
+  bor_getCurrentProposer: 0
+  bor_getRootHash: 0
+  eth_getTransactionReceiptsByBlock: 10
+  batch: 0
+#  rpc_batch_mix: 0
+#  rpc_batch_eth_call: 0
+#  rpc_batch_blockByNumber: 0
+
+# 0 = latest
+Height: 0
+Range:  10000
+
+Router: 0x10ed43c718714eb63d5aa57b78b54704e256024e
+WBNB: 0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c
+BEP20:
+  - 0xc2132D05D31c914a87C6611C10748AEb04B58e8F
+
+
+
+# If AccountCSV empty, dynamically load account , use bep20 filterLogs(total account = NumberOfAccount*len(bep20))
+AccountCSV:
+NumberOfAccount: 100
+
+# If AccountCSV empty, dynamically load txHash from block
+TXHashCSV:
+NumberOfTXHash: 100
+
+Sender: 0x89E73303049EE32919903c09E8DE5629b84f59EB
+BEP20StorageAt: 0x00000000000000000000000089e73303049ee32919903c09e8de5629b84f59eb
+
+# 1: debug, 2: info, 3: warn, 4: error, 5: fatal
+LogLevel: 2
+# unit: sec
+AggrInterval: 1
+Headers:
+  X-Forwarded-Host: [polygon-mainnet]
+#  X-Real-Ip: [192.168.1.23]
+  Content-Type: [application/json]

@@ -1,0 +1,106 @@
+IsStandalone: true
+#
+AWSLambdaNums: 3
+#
+ScenariosPerSec: 3
+DurationSec: 180
+# 0 = unlimited
+GoroutineLimit: 0
+#
+TestNode: https://bsc-coordinator-archive.nodereal.io
+FullNode: https://bsc-coordinator-archive.nodereal.io
+# websocket test url
+WsUrl: wss://bsc-mainnet-ap.nodereal.io/ws/v1/21aa061c92c847b5b530e53adad2c1bb
+# api key
+ApiKey:
+#  - 2d69bdf700454b2cb47a9d72e5d68784
+#  - 2d69bdf700454b2cb47a9d72e5d68784
+#
+Scenarios:
+  # archive
+  debug_traceBlockByNumber: 0
+  debug_traceTransaction: 0
+  debug_traceCall: 0
+  # archive + normal rpc
+  eth_call_getAmountsOut: 10
+  eth_call_balanceOf: 10
+  eth_getStorageAt: 0
+  eth_getBalance: 0
+  eth_estimateGas: 0
+  eth_getTransactionCount: 0
+  eth_getCode: 0
+  eth_getProof: 0
+  # normal rpc
+  eth_getLogs: 0
+  net_version: 0
+  eth_blockNumber: 0
+  eth_getTransactionReceipt: 0
+  eth_getBlockByNumber: 0
+  eth_chainId: 0
+  eth_getTransactionByHash: 0
+  eth_getTransactionDataAndReceipt: 0
+  nr_getTransactionDataAndReceipt: 0
+  # websocket
+  eth_subscribe_newHeads: 0
+  eth_subscribe_logs: 0
+  eth_subscribe_newPendingTransactions: 0
+  #batch
+  #filter
+  eth_newFilter: 0
+  eth_newBlockFilter: 0
+  eth_newPendingTransactionFilter: 0
+  eth_getFilterLogs: 0
+  eth_getFilterChanges: 0
+  eth_uninstallFilter: 0
+  eth_getFilterLogsOnupdate: 0
+  eth_getFilterChangesOnupdate: 0
+  eth_uninstallFilterOnupdate: 0
+  eth_subscribe_multiple: 0
+#  rpc_batch_mix: 0
+#  rpc_batch_eth_call: 0
+#  rpc_batch_blockByNumber: 0
+
+# 0 = latest
+Height: 0
+Range:  0
+
+Router: 0x10ed43c718714eb63d5aa57b78b54704e256024e
+WBNB: 0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c
+BEP20:
+  - 0x2170Ed0880ac9A755fd29B2688956BD959F933F8
+  - 0x55d398326f99059fF775485246999027B3197955
+  - 0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d
+  - 0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE
+  - 0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47
+  - 0x1CE0c2827e2eF14D5C4f29a091d735A204794041
+  - 0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402
+  - 0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56
+  - 0xbA2aE424d960c26247Dd6c32edC70B295c744C43
+  - 0x23396cF899Ca06c4472205fC903bDB4de249D6fC
+  - 0x2859e4544C4bB03966803b044A93563Bd2D0DD4D
+  - 0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3
+  - 0x0Eb3a705fc54725037CC9e008bDede697f62F335
+  - 0x4338665CBB7B2485A8855A139b75D5e34AB0DB94
+  - 0x1Fa4a73a3F0133f0025378af00236f3aBDEE5D63
+  - 0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD
+
+
+# If AccountCSV empty, dynamically load account , use bep20 filterLogs(total account = NumberOfAccount*len(bep20))
+AccountCSV:
+NumberOfAccount: 100
+
+# If AccountCSV empty, dynamically load txHash from block
+TXHashCSV:
+NumberOfTXHash: 100
+
+Sender: 0x89E73303049EE32919903c09E8DE5629b84f59EB
+BEP20StorageAt: 0x00000000000000000000000089e73303049ee32919903c09e8de5629b84f59eb
+
+# 1: debug, 2: info, 3: warn, 4: error, 5: fatal
+LogLevel: 2
+# unit: sec
+AggrInterval: 1
+Headers:
+#  X-Forwarded-Host: [bsc-mainnet]
+#  X-Real-Ip: [192.168.1.23]
+  Content-Type: [application/json]

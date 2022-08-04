@@ -1,0 +1,22 @@
+service: loadtest
+
+provider:
+  name: aws
+  runtime: go1.x
+  region: us-east-1
+  memorySize: 512
+  timeout: 900
+
+package:
+  exclude:
+    - ./**
+  include:
+    - ./build/**
+    - ./config.yml
+    - ./account.csv
+    - ./txhash.csv
+
+functions:
+  loadtest:
+    handler: build/loadtest
+    maximumRetryAttempts: 0
